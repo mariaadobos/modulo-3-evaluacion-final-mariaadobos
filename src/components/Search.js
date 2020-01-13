@@ -9,7 +9,7 @@ const Search = props => {
         event.preventDefault()
     };
     return <form className='form' onSubmit={onSubmitHandler}>
-        <input className='form__input' type='text' placeholder='Busca un personaje' value={props.value} onChange={getInputValue}/>
+        <input className='form__input' type='text' placeholder='★ busca un personaje aqui ★' value={props.value} onChange={getInputValue}/>
     </form>
 }
 Search.propTypes = {

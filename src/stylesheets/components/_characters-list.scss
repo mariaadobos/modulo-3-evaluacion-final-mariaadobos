@@ -5,7 +5,12 @@
 
     @include media ($tablet){
         display: grid;
-        grid-gap: 15px;
+        grid-gap: 40px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(10, 1fr);
+    }
+    @include media ($desktop){
+        display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(5, 1fr);
     }
@@ -13,9 +18,13 @@
 .character{
     display: flex;
     flex-direction: column;
+    box-shadow: 0 0 5px greenyellow;
 
     &__image{
-        max-width: 300px;
+        max-width: 250px;
+        @include media ($desktop){
+            max-width: 220px;
+        }
     }
     &__info{
         background-color: rgb(24, 99, 99);

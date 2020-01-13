@@ -2,8 +2,8 @@ import React from 'react';
 import logo from '../images/logo.png'
 
  const Header = () => {
-     return <header>
-         <img src={logo} alt='logo'/>
+     return <header className='header'>
+         <img className='header__logo' src={logo} alt='logo'/>
      </header>
  }
 
