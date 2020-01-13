@@ -1,7 +1,9 @@
 import React from 'react';
 import CharactersList from './CharactersList';
 import Search from './Search';
-import {FetchAPI} from '../services/FetchAPI';
+import Details from './Details';
+import { Route, Switch } from 'react-router-dom';
+import { FetchAPI } from '../services/FetchAPI';
 import '../stylesheets/App.scss';
 
 class App extends React.Component {
@@ -9,9 +11,11 @@ class App extends React.Component {
     super(props);
     this.state = {
       allCharacters: [],
-      query: ''
+      query: '',
+      singleCharacter: {}
     }
     this.getInputValue = this.getInputValue.bind(this);
+    this.renderDetails = this.renderDetails.bind(this);
   }
   componentDidMount(){
     FetchAPI()
@@ -26,13 +30,26 @@ class App extends React.Component {
       query: value
     })
   };
+  renderDetails (props){
+    const selectedId = props.match.params.id;
+    console.log(selectedId)
+    for (const character of this.state.allCharacters){
+      if (character.id===selectedId){
+        this.setState({singleCharacter: character}) 
+      }
+    }
+    console.log(this.state.singleCharacter)
+    return <Details characterDetails={this.state.singleCharacter}/>
+  }
   render() {
-    console.log(this.state.query)
     return (
-      <React.Fragment>
-        <Search getInputValue={this.getInputValue}/>
-        <CharactersList allCharacters={this.state.allCharacters} query={this.state.query}/>
-      </React.Fragment>
+      <Switch>
+        <Route exact path="/">
+          <Search getInputValue={this.getInputValue}/>
+          <CharactersList allCharacters={this.state.allCharacters} query={this.state.query}/>
+        </Route>
+        <Route path="/details/:id" render={this.renderDetails}></Route>
+      </Switch>
     );
   }
 }
