@@ -8,8 +8,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      allCharacters: []
+      allCharacters: [],
+      query: ''
     }
+    this.getInputValue = this.getInputValue.bind(this);
   }
   componentDidMount(){
     FetchAPI()
@@ -18,12 +20,18 @@ class App extends React.Component {
         allCharacters: data.results
       })
     })
-  }
+  };
+  getInputValue(value){
+    this.setState({
+      query: value
+    })
+  };
   render() {
+    console.log(this.state.query)
     return (
       <React.Fragment>
-        <Search/>
-        <CharactersList allCharacters={this.state.allCharacters}/>
+        <Search getInputValue={this.getInputValue}/>
+        <CharactersList allCharacters={this.state.allCharacters} query={this.state.query}/>
       </React.Fragment>
     );
   }

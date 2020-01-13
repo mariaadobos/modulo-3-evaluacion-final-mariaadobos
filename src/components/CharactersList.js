@@ -3,7 +3,9 @@ import Character from './Character'
 
 const CharactersList = props => {
     return <ul>
-        {props.allCharacters.map(character => {
+        {props.allCharacters
+        .filter(character => props.query==='' || character.name.toLowerCase().includes(props.query))
+        .map(character => {
             return <li key={character.id}>
                 <Character 
                 img = {character.image}
