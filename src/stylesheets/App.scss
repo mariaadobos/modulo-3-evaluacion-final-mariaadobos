@@ -7,9 +7,15 @@
 
 
 #root{
+    max-height: 100%;
+    min-height: 100vh;
     background-image: url('../images/background.jpg');
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     padding: 30px 10px 10px;
+}
+.bold{
+    font-weight: bold;
 }

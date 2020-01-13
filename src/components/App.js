@@ -4,7 +4,7 @@ import CharactersList from './CharactersList';
 import Search from './Search';
 import Details from './Details';
 import { Route, Switch } from 'react-router-dom';
-import { FetchAPI } from '../services/FetchAPI';
+import { FetchAPI, FetchDetails } from '../services/FetchAPI';
 import '../stylesheets/App.scss';
 
 class App extends React.Component {
@@ -17,6 +17,7 @@ class App extends React.Component {
     }
     this.getInputValue = this.getInputValue.bind(this);
     this.renderDetails = this.renderDetails.bind(this);
+    this.FetchDetails = this.FetchDetails.bind(this);
   }
   componentDidMount(){
     FetchAPI()
@@ -31,18 +32,16 @@ class App extends React.Component {
       query: value
     })
   };
+  FetchDetails(id){
+    FetchDetails(id)
+    .then(data => {
+      this.setState({
+        singleCharacter: data
+      })
+    })
+  }
   renderDetails (props){
-    const selectedId = props.match.params.id;
-    console.log(selectedId)
-    console.log(this.state.allCharacters)
-
-    for (const character of this.state.allCharacters){
-      if (character.id===selectedId){
-        this.setState({singleCharacter: character}) 
-        console.log(this.state.singleCharacter)
-        console.log(selectedId)
-      }
-    }
+    this.FetchDetails(props.match.params.id)
     return <Details characterDetails={this.state.singleCharacter}/>
   }
   render() {
