@@ -1,12 +1,13 @@
 import React from 'react';
 import Character from './Character';
 import { Link } from 'react-router-dom';
-
+import PropTypes from 'prop-types';
 
 const CharactersList = props => {
+    const {allCharacters, query} = props;
     return <ul className='list'>
-        {props.allCharacters
-        .filter(character => props.query==='' || character.name.toLowerCase().includes(props.query))
+        {allCharacters
+        .filter(character => query==='' || character.name.toLowerCase().includes(query))
         .map(character => {
             return <Link to={`/details/${character.id}`}>
                 <li key={character.id} className='character'>
@@ -19,5 +20,9 @@ const CharactersList = props => {
             </Link>
         })}
     </ul>
+}
+CharactersList.propType = {
+    allCharacters: PropTypes.array,
+    query: PropTypes.string
 }
 export default CharactersList;

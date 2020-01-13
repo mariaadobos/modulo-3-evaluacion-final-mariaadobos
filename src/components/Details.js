@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Details = props => {
@@ -15,5 +16,11 @@ const Details = props => {
         <span className='character__info'>Status: {status}</span>
     </div>
     </div>
+}
+Details.propTypes = {
+    name:PropTypes.string,
+    image: PropTypes.string,
+    species: PropTypes.string,
+    status: PropTypes.string
 }
 export default Details;

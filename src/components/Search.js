@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Search = props =>{
+const Search = props => {
     const getInputValue = event => {
         props.getInputValue(event.target.value)
     }
@@ -10,5 +11,8 @@ const Search = props =>{
     return <form className='form' onSubmit={onSubmitHandler}>
         <input className='form__input' type='text' placeholder='Busca un personaje' value={props.value} onChange={getInputValue}/>
     </form>
+}
+Search.propTypes = {
+    value: PropTypes.string
 }
 export default Search;
