@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 
 
 const CharactersList = props => {
-    return <ul>
+    return <ul className='list'>
         {props.allCharacters
         .filter(character => props.query==='' || character.name.toLowerCase().includes(props.query))
         .map(character => {
             return <Link to={`/details/${character.id}`}>
-                <li key={character.id}>
+                <li key={character.id} className='character'>
                 <Character 
                 img = {character.image}
                 name= {character.name}

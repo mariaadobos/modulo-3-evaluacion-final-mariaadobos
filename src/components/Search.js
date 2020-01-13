@@ -7,8 +7,8 @@ const Search = props =>{
     const onSubmitHandler = event => {
         event.preventDefault()
     };
-    return <form onSubmit={onSubmitHandler}>
-        <input type='text' placeholder='Busca un personaje' value={props.value} onChange={getInputValue}/>
+    return <form className='form' onSubmit={onSubmitHandler}>
+        <input className='form__input' type='text' placeholder='Busca un personaje' value={props.value} onChange={getInputValue}/>
     </form>
 }
 export default Search;
