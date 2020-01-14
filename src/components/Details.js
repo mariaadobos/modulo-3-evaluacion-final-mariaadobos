@@ -11,10 +11,10 @@ const Details = props => {
         <div className='character-details'>
         <img src={image} alt={name}/>
         <div className='character-details__description'>
-            <span className='character__info bold'>{name}</span>
-            <span className='character__info'>Species: {species}</span>
+            <span className='character-details__description__name bold'>{name}</span>
+            <span className=''>Species: {species}</span>
             {/*<span className='character__info'>{props.characterDetails.episode.length}</span>*/}
-            <span className='character__info'>Status: {status}</span>
+            <span className=''>Status: {status}</span>
         </div>
     </div>
     </div>

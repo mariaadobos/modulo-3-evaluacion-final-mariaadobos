@@ -8,17 +8,21 @@
         margin: 20px 0 50px;
     }
     &__input{
+        padding-left: 10px;
         width: 60%;
         height: 30px;
         background-color: rgb(93, 196, 187);
         border-radius: 10px;
         border-style: none;
         box-shadow: 0 0 10px greenyellow;
+        font-weight: bold;
+        @include media ($tablet){
+            height: 35px;
+        }
         &::placeholder{
             color: rgb(6, 1, 22);
             font-weight: bold;
             font-style: italic;
-            padding-left: 10px;
         }
     }
 }

@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 75%;
+    //width: 75%;
 }
 .back{
     letter-spacing: 2px;
@@ -14,10 +14,10 @@
     border-radius: 10px;
     padding: 5px;
     align-self: flex-end;
-    margin: 0 25px 0 0;
+    margin: 10px 10px 0px 0px;
    
     @include media ($tablet){
-        margin: 40px 25px 0 0;
+        margin: 40px 0 0 0;
     }
     
 }
@@ -46,10 +46,16 @@
         width: 500px;
     }
     &__description{
+        line-height: 1.6;
+        font-family: 'Quantico', sans-serif;
+        color: white;
         padding: 10px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        &__name{
+            font-size: 22px;
+        }
     }
 }
