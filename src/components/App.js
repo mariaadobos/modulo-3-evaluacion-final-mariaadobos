@@ -3,6 +3,7 @@ import Header from './Header';
 import CharactersList from './CharactersList';
 import Search from './Search';
 import Details from './Details';
+import Loader from './Loader';
 import { Route, Switch } from 'react-router-dom';
 import { FetchAPI, FetchDetails } from '../services/FetchAPI';
 import '../stylesheets/App.scss';
@@ -44,17 +45,18 @@ class App extends React.Component {
     this.FetchDetails(props.match.params.id)
     return <React.Fragment>
       <Header/>
-      <Details characterDetails={this.state.singleCharacter}/>
+      {this.state.singleCharacter==='' ? <Loader/> : <Details characterDetails={this.state.singleCharacter}/>}
     </React.Fragment>
     
   }
   render() {
+    console.log(this.state.singleCharacter)
     return (
       <Switch>
         <Route exact path="/">
           <Header/>
           <Search value={this.state.query} getInputValue={this.getInputValue}/>
-          <CharactersList allCharacters={this.state.allCharacters} query={this.state.query}/>
+          {this.state.allCharacters==='' ? <Loader/> : <CharactersList allCharacters={this.state.allCharacters} query={this.state.query}/>}
         </Route>
         <Route path="/details/:id" render={this.renderDetails}></Route>
       </Switch>

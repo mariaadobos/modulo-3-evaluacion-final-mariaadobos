@@ -4,8 +4,9 @@
 @import 'vendors/normalize';
 @import 'components/details';
 @import 'components/header';
+@import 'components/loader';
 @import 'components/search';
-@import 'components/characters-list';
+@import 'components/characters';
 
 #root{
     width: 100%;
