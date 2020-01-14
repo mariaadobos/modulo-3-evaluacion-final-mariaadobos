@@ -42,7 +42,11 @@ class App extends React.Component {
   }
   renderDetails (props){
     this.FetchDetails(props.match.params.id)
-    return <Details characterDetails={this.state.singleCharacter}/>
+    return <React.Fragment>
+      <Header/>
+      <Details characterDetails={this.state.singleCharacter}/>
+    </React.Fragment>
+    
   }
   render() {
     return (

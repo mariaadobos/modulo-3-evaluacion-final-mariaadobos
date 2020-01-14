@@ -4,16 +4,18 @@ import { Link } from 'react-router-dom';
 
 const Details = props => {
     const {name, image, species, status, episode, origin} = props.characterDetails
-    return <div>
-        <Link to='/'>
-            <span className='back'><i className="fas fa-arrow-left"></i>Volver</span>
+    return <div className='details-container'>
+        <Link className='back' to='/'>
+            <span ><i className="fas fa-chevron-left"></i>Volver</span>
         </Link>
-        <div className='character'>
+        <div className='character-details'>
         <img src={image} alt={name}/>
-        <span className='character__info bold'>{name}</span>
-        <span className='character__info'>Species: {species}</span>
-        {/*<span className='character__info'>{props.characterDetails.episode.length}</span>*/}
-        <span className='character__info'>Status: {status}</span>
+        <div className='character-details__description'>
+            <span className='character__info bold'>{name}</span>
+            <span className='character__info'>Species: {species}</span>
+            {/*<span className='character__info'>{props.characterDetails.episode.length}</span>*/}
+            <span className='character__info'>Status: {status}</span>
+        </div>
     </div>
     </div>
 }

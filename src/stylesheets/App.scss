@@ -2,6 +2,7 @@
 @import 'core/mixins';
 @import 'core/variables';
 @import 'vendors/normalize';
+@import 'components/details';
 @import 'components/header';
 @import 'components/search';
 @import 'components/characters-list';
@@ -13,7 +14,6 @@
     background-image: url('../images/background.jpg');
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     padding: 30px 10px 10px;
 }
