@@ -34,12 +34,14 @@ class App extends React.Component {
     })
   };
   FetchDetails(id){
-    FetchDetails(id)
+    if (id !== this.state.singleCharacter.id){
+      FetchDetails(id)
     .then(data => {
       this.setState({
         singleCharacter: data
       })
     })
+    }
   }
   renderDetails (props){
     this.FetchDetails(props.match.params.id)
